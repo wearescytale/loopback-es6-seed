@@ -14,8 +14,7 @@
     "pretest": "npm run check",
     "posttest": "npm run lint && nsp check",
     "test": "npm run unit-test",
-    "precommit": "npm run check",
-    "prepush": "npm run test"
+    "precommit": "npm run check"
   },
   "dependencies": {
     "app-module-path": "^2.2.0",

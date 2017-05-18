@@ -19,3 +19,5 @@ node_modules
 npm-debug.log
 
 server/configs.js
+
+.nyc_output

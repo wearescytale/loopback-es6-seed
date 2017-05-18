@@ -1,0 +1,7 @@
+./test/init
+./**/*.spec.js
+--recursive
+--timeout 3000
+-R nyan
+--require ./test/test-base
+--retries 1

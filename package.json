@@ -6,12 +6,18 @@
     "node": ">=4"
   },
   "scripts": {
-    "lint": "eslint .",
     "start": "./node_modules/.bin/nodemon . | ./node_modules/.bin/bunyan",
-    "posttest": "npm run lint && nsp check"
+    "unit-test": "./node_modules/.bin/nyc --reporter=html ./node_modules/.bin/mocha --opts './mocha.opts' -b",
+    "pretest": "npm run check",
+    "posttest": "npm run lint && nsp check",
+    "test": "npm run unit-test",
+    "precommit": "npm run check",
+    "prepush": "npm run test"
   },
   "dependencies": {
     "bunyan": "^1.8.10",
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "glob": "^7.1.1",
@@ -21,8 +27,12 @@
     "loopback-component-explorer": "^4.0.0",
     "loopback-component-logger": "^0.3.4",
     "loopback-softdelete-mixin2": "^0.0.11",
+    "mocha": "^3.4.1",
+    "mocha-mongoose": "^1.2.0",
     "nodemon": "^1.11.0",
+    "nyc": "^10.3.2",
     "serve-favicon": "^2.0.1",
+    "sinon": "^2.2.0",
     "strong-error-handler": "^2.0.0",
     "to-camel-case": "^1.0.0"
   },

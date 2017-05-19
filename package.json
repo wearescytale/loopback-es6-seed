@@ -10,11 +10,10 @@
     "dev": "./node_modules/.bin/nodemon . | ./node_modules/.bin/bunyan",
     "unit-test": "./node_modules/.bin/nyc --reporter=html ./node_modules/.bin/mocha --opts './mocha.opts' -b",
     "nsp": "nsp check",
-    "check": "npm run nsp",
-    "pretest": "npm run check",
-    "posttest": "npm run lint && nsp check",
+    "pretest": "npm run nsp",
     "test": "npm run unit-test",
-    "precommit": "npm run check"
+    "precommit": "npm run nsp",
+    "prepush": "npm run test"
   },
   "dependencies": {
     "app-module-path": "^2.2.0",

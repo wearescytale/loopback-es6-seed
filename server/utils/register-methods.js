@@ -19,13 +19,13 @@ module.exports = (cb) => {
         Model.services = {};
 
         glob.sync(
-            path.join(path.dirname(module.parent.filename), './controllers/*.js')
+            path.join(path.dirname(module.parent.filename), './controllers/!(*.spec).js')
         )
             .forEach(appendController(Model))
         ;
 
         glob.sync(
-            path.join(path.dirname(module.parent.filename), './services/*.js')
+            path.join(path.dirname(module.parent.filename), './services/!(*.spec).js')
         )
             .forEach(appendService(Model))
         ;

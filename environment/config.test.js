@@ -1,8 +1,6 @@
-'use strict';
-
 module.exports = {
-    // mongo configs
+    env: 'TEST',
     MONGO_HOST: 'localhost',
     MONGO_PORT: 27017,
-    DB: 'loopback-seed',
+    MONGO_DB: 'loopback-seed-test',
 };

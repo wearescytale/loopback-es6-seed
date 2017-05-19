@@ -13,21 +13,22 @@ process.on('unhandledRejection', (err, p) => {
     // do nothing
 });
 
-// Mongo
-const mongoConfig = require('../server/datasources.test');
-const mongo = mochaMongoose(
-    'mongodb://' +
-    mongoConfig.mongo.host +
-    ':' +
-    mongoConfig.mongo.port +
-    '/' +
-    mongoConfig.mongo.database,
-    {}
-);
-
 // Server setup
 before((done) => {
     const app = require('server/server');
+
+    // Mongo
+    const config = require('environment');
+    const mongo = mochaMongoose(
+        'mongodb://' +
+        config.MONGO_HOST +
+        ':' +
+        config.MONGO_PORT +
+        '/' +
+        config.MONGO_DB,
+        {}
+    );
+
     app.start();
 
     return app.once('booted', () => {
